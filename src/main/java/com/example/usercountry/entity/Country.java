@@ -11,28 +11,28 @@ public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long cid;
+    @Column(name = "cid")
+    private int cid;
     @Column(unique = true)
-    private Long code;
+    private int code;
     private String countryName;
     @OneToMany(targetEntity = Users.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "country_code",referencedColumnName = "code")
+    @JoinColumn(name = "users_countryCode",referencedColumnName = "countryCode")
     private List<Users> users;
 
-    public Long getCid() {
+    public int getCid() {
         return cid;
     }
 
-    public void setCid(Long cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
 
-    public Long getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

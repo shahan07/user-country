@@ -41,9 +41,9 @@ public class UsersService {
         return repository.findAll();
     }
 
-    public Users getUsersById(int id) {
+    public Users getUsersById(int uid) {
 
-        return repository.findById(id).orElse(null);
+        return repository.findById(uid).orElse(null);
     }
 
     public Users getUsersByName(String name) {
@@ -52,9 +52,9 @@ public class UsersService {
         return repository.findByName(name);
     }
 
-    public String deleteUsers(int id) {
-        repository.deleteById(id);
-        return "person removed !! " + id;
+    public String deleteUsers(int uid) {
+        repository.deleteById(uid);
+        return "person removed !! " + uid;
     }
 
     public Users updateUsers(Users users) {

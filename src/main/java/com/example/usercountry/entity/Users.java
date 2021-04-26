@@ -18,17 +18,16 @@ public class Users {
     private String password;
     private Date dob;
     private LocalDateTime createdAt;
-    @ManyToOne
-    @JoinColumn(name = "country_code", referencedColumnName = "code")
-    private Country country;
+    private int countryCode;
+
 
 
     public int getId() {
         return uid;
     }
 
-    public void setId(int id) {
-        this.uid = id;
+    public void setId(int uid) {
+        this.uid = uid;
     }
 
     public String getUserName() {
@@ -69,5 +68,13 @@ public class Users {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public int getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(int countryCode) {
+        this.countryCode = countryCode;
     }
 }
