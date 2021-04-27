@@ -1,9 +1,11 @@
 package com.example.usercountry.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
-
+@Data
 @Entity
 @Table(name = "country")
 public class Country {
@@ -16,8 +18,8 @@ public class Country {
     @Column(unique = true)
     private int code;
     private String countryName;
-    @OneToMany(targetEntity = Users.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_countryCode",referencedColumnName = "countryCode")
+    @OneToMany(mappedBy="users",cascade = CascadeType.ALL)
+    //@JoinColumn(name = "users_countryCode",referencedColumnName = "countryCode")
     private List<Users> users;
 
     public int getCid() {

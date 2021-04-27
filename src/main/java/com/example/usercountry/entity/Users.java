@@ -2,10 +2,13 @@ package com.example.usercountry.entity;
 
 
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+@Data
 @Entity
 @Table(name = "users")
 public class Users {

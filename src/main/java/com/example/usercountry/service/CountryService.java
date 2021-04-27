@@ -13,44 +13,44 @@ import java.util.List;
 @Service
 public class CountryService {
     @Autowired
-    private CountryRepository repository;
+    private CountryRepository countryRepository;
 
     public Country saveCountry(Country country) {
 
-        return repository.save(country);
+        return countryRepository.save(country);
     }
 
     public List<Country> saveCountry(List<Country>country) {
 
-        return repository.saveAll(country);
+        return countryRepository.saveAll(country);
     }
 
     public List<Country> getCountry() {
 
-        return repository.findAll();
+        return countryRepository.findAll();
     }
 
     public Country getCountryById(int id) {
 
-        return repository.findById(id).orElse(null);
+        return countryRepository.findById(id).orElse(null);
     }
 
     public Country getCountryByName(String name) {
 
 
-        return repository.findByName(name);
+        return countryRepository.findByName(name);
     }
 
     public String deleteCountry(int cid) {
-        repository.deleteById(cid);
+        countryRepository.deleteById(cid);
         return "Country removed !! " + cid;
     }
 
     public Country updateCountry(Country country) {
-        Country existingCountry = repository.findById(country.getCid()).orElse(null);
+        Country existingCountry = countryRepository.findById(country.getCid()).orElse(null);
         existingCountry.setCountryName(country.getCountryName());
 
-        return repository.save(existingCountry);
+        return countryRepository.save(existingCountry);
     }
 
 
